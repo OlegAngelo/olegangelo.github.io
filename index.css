@@ -1,0 +1,148 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 96px;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+.contact {
+    font-size: 13px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.divider-with-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hr-divider {
+    flex-grow: 1;
+    border: none;
+    border-top: 2px solid #ccc;
+}
+
+.experience-header, .proj-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    white-space: nowrap;
+}
+
+h4 {
+    margin: 0;
+    font-weight: 700;
+}
+
+h6 {
+    margin: 0;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.date, .address {
+    font-size: 10px;
+    font-style: italic;
+    margin: 0;
+    color: #787575;
+    text-align: right;
+}
+
+ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+li {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: #787575;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.proj-right {
+    font-size: 10px;
+    font-style: italic;
+    margin: 0;
+    color: #787575;
+    text-align: right;
+}
+
+.proj-description {
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.skills div {
+    display: flex;
+} 
+
+.skills div strong {
+    width: 300px;
+    align-self: center;
+}
+
+.skills div p {
+    margin: 0;
+    width: 600px;
+    align-self: center;
+    font-family: "Times New Roman";
+}
+
+.award-data div {
+    display: flex;
+    gap: 2rem;
+    font-size: 12px;
+}
+
+.award-date {
+    color: #787575;
+    font-weight: 700;
+}
+
+.award-data div p {
+    text-align: center;
+    align-items: center;
+}
+
+.award-data div p span {
+    color: #787575;
+    font-style: italic;
+}
+
+.award-giver {
+    margin-left: auto;
+    color: #787575;
+    font-style: italic;
+}
+
