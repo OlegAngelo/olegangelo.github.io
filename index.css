@@ -22,6 +22,10 @@ header h1 {
     color: black;
 }
 
+a.word-exp-link {
+    color: black;
+}
+
 hr {
     margin: 20px 0;
 }
@@ -29,8 +33,7 @@ hr {
 main {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 0 150px;
+    margin: 0 220px;
 }
 
 .divider-with-text {
