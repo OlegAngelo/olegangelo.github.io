@@ -62,6 +62,64 @@ h4 {
     font-weight: 700;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltiptext {
+    width: 120px;
+    color: #000;
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px 8px;
+    position: absolute;
+    z-index: 1;
+
+    /* position tooltip on the right side */
+    top: 25%;
+    left: 115%;
+    transform: translateY(-50%);
+
+    /* pulsing animation */
+    animation: tooltipPulse 1.5s infinite;
+
+    font-size: xx-small;
+    border: 1px dotted black;
+    background: #fff;
+
+    cursor:default;
+}
+
+.tooltiptext::after {
+      content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* places arrow on left side of tooltip */
+    transform: translateY(-50%);
+    
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+/* pulse animation */
+@keyframes tooltipPulse {
+    0% {
+        transform: translateX(-20%) scale(1);
+        box-shadow: 0 0 0 0 rgba(0,0,0,0.3);
+    }
+    50% {
+        transform: translateX(-20%) scale(1.08);
+        box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }
+    100% {
+        transform: translateX(-20%) scale(1);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+}
+
 h6 {
     margin: 0;
     font-size: 9px;
