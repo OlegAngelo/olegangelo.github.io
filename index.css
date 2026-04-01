@@ -5,6 +5,37 @@ body {
     line-height: 1.6;
 }
 
+:root {
+    --accent-soft: #8fb8cc;
+    --accent-strong: #5e93ac;
+    --surface-soft: #f7fbfd;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 1000;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: 1px solid #c8d6de;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #3f5460;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: #f2f7fa;
+    border-color: var(--accent-soft);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent-soft);
+    outline-offset: 2px;
+}
+
 header {
     text-align: center;
 }
@@ -42,10 +73,21 @@ main {
     gap: 8px;
 }
 
+.divider-with-text,
+section,
+.skills div,
+.award-data div {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
 .hr-divider {
     flex-grow: 1;
     border: none;
     border-top: 2px solid #ccc;
+}
+
+.divider-with-text:hover .hr-divider {
+    border-top-color: var(--accent-soft);
 }
 
 .experience-header, .proj-content {
@@ -60,6 +102,11 @@ h2 {
 h4 {
     margin: 0;
     font-weight: 700;
+}
+
+section:hover {
+    background-color: var(--surface-soft);
+    transform: translateY(-2px);
 }
 
 .tooltip {
@@ -77,12 +124,10 @@ h4 {
     position: absolute;
     z-index: 1;
 
-    /* position tooltip on the right side */
     top: 25%;
     left: 115%;
     transform: translateY(-50%);
 
-    /* pulsing animation */
     animation: tooltipPulse 1.5s infinite;
 
     font-size: xx-small;
@@ -96,7 +141,7 @@ h4 {
       content: "";
     position: absolute;
     top: 50%;
-    right: 100%; /* places arrow on left side of tooltip */
+        right: 100%;
     transform: translateY(-50%);
     
     border-width: 6px;
@@ -104,7 +149,6 @@ h4 {
     border-color: transparent black transparent transparent;
 }
 
-/* pulse animation */
 @keyframes tooltipPulse {
     0% {
         transform: translateX(-20%) scale(1);
@@ -150,6 +194,18 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.contact a,
+.proj-right a,
+a.word-exp-link {
+    transition: color 0.2s ease;
+}
+
+.contact a:hover,
+.proj-right a:hover,
+a.word-exp-link:hover {
+    color: var(--accent-strong);
 }
 
 .proj-right {
@@ -208,25 +264,119 @@ a:hover {
     font-style: italic;
 }
 
-/* passport portion */
-
 header {
-    position: relative; /* allows absolute positioning inside */
+    position: relative;
 }
 
 .profile-photo {
     position: absolute;
     top: 0;
     left: 0;
-    width: clamp(90px, 12vw, 150px); /* responsive size */
-    aspect-ratio: 1 / 1; /* perfect square (2x2 passport) */
+    width: clamp(90px, 12vw, 150px);
+    aspect-ratio: 1 / 1;
 }
 
 .profile-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* crops nicely */
-    border-radius: 4px; /* optional: remove if you want sharp edges */
+    object-fit: cover;
+    border-radius: 4px; 
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.profile-photo img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
 
+.reveal-item {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    z-index: 999;
+    background: linear-gradient(90deg, var(--accent-soft), var(--accent-strong));
+}
+
+.link-pop {
+    animation: linkPop 0.22s ease;
+}
+
+@keyframes linkPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal-item,
+    .reveal-item.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+body.dark-mode {
+    background-color: #151a1f;
+    color: #d8e2e8;
+}
+
+body.dark-mode .theme-toggle {
+    background: #26323b;
+    color: #e7eff4;
+    border-color: #4a6372;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #2f3d48;
+}
+
+body.dark-mode .contact a,
+body.dark-mode a.word-exp-link {
+    color: #e0ecf2;
+}
+
+body.dark-mode a {
+    color: #a9c1cf;
+}
+
+body.dark-mode .hr-divider {
+    border-top-color: #455460;
+}
+
+body.dark-mode .tooltiptext {
+    color: #eef4f8;
+    border-color: #6f8798;
+    background: #24303a;
+}
+
+body.dark-mode .date,
+body.dark-mode .address,
+body.dark-mode .award-date,
+body.dark-mode .award-giver,
+body.dark-mode .award-data div p span,
+body.dark-mode .proj-right {
+    color: #9cb2bf;
+}
+
+body.dark-mode section:hover {
+    background-color: #1d252d;
+}
