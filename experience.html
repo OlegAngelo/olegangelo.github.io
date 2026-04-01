@@ -112,8 +112,35 @@
         </ul>
       </section>
 
+      <section class="playground-section">
+        <div class="divider-with-text">
+          <h2>Let's play a game</h2>
+          <hr class="hr-divider">
+        </div>
+        <p class="playground-note">Open a quick Rock Paper Scissors game.</p>
+        <div class="playground-controls">
+          <button id="open-rps-modal" type="button">Play RPS</button>
+        </div>
+      </section>
+
     </main>
+
+    <div id="rps-modal" class="rps-modal" aria-hidden="true">
+      <div class="rps-modal-card" role="dialog" aria-modal="true" aria-labelledby="rps-title">
+        <button id="close-rps-modal" class="rps-close" type="button" aria-label="Close game">×</button>
+        <h3 id="rps-title">Rock Paper Scissors</h3>
+        <p class="rps-subtitle">Choose one:</p>
+        <div class="rps-actions">
+          <button class="rps-choice" data-choice="Rock" type="button">Rock</button>
+          <button class="rps-choice" data-choice="Paper" type="button">Paper</button>
+          <button class="rps-choice" data-choice="Scissors" type="button">Scissors</button>
+        </div>
+        <p id="rps-result" class="rps-result" aria-live="polite">Result will show here.</p>
+      </div>
+    </div>
+
     <script src="index.js" type="text/javascript"></script>
+    <script src="rps.js" type="text/javascript"></script>
   </body>
 </html>
 
